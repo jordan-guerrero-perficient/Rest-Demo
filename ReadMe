@@ -1,0 +1,6 @@
+This is a Spring Boot Application that makes a REST call to google custom search api with a custom search engine
+that I have created. The engine runs a search on sports related news sites. Read the following
+to run the application
+
+Step 1: mvn clean package in project directory
+Step 2: In project directory: java -jar target/rest-demo-0.1.0.jar <ENTER SEARCH QUERY HERE, SPACES ARE ALLOWED>
