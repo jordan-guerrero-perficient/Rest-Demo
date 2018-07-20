@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,21 +11,23 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Scanner;
 
 @SpringBootApplication
 public class RestDemoApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(RestDemoApplication.class);
 
-	private static String str = "placeHolder";
+	private static String str = " ";
 
 	public static void main(String args[]){
 
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Enter Search Query: ");
+		str =  scanner.nextLine();
 		SpringApplication.run(RestDemoApplication.class, args);
-		str = args.toString();
+//		str = args.toString();
 	}
 
 	//private String query;
