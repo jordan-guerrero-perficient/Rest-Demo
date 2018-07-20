@@ -12,11 +12,18 @@ public class Items {
         public Items(){
         }
 
+        public Items(String title, String link){
+            this.title = title;
+            this.link = link;
+        }
+
         public String getTitle(){
+
             return this.title;
         }
 
         public String getLink(){
+
             return this.link;
         }
 
@@ -25,6 +32,7 @@ public class Items {
         }
 
         public void setLink(){
+
             this.link = link;
         }
 
