@@ -1,3 +1,7 @@
-<template id = "1">
-    <field type = "json" url="https://www.googleapis.com/customsearch/v1?key=AIzaSyCcDmi3nTLcfyAlOWIpVGNmEYGf22HGBo8&cx=018100688330092027261:ln0j8vimdvw&q=Chelsea">name</field>
-</template>
+<templates>
+        <template id="demo">
+                <field id="first-name" dataType="String" dataSource="1"/>
+                <field id="last-name" dataType="String" dataSource="1"/>
+                <field id="ssn" dataType="String" dataSource="2"/>
+        </template>
+</templates>

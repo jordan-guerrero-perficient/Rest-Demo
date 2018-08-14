@@ -1,12 +1,17 @@
-package com.jordan.guerrero.restdemo;
+package com.jordan.guerrero.restdemo.pojo;
 
-import com.jordan.guerrero.restdemo.Field;
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "template")
 public class Template
 {
+    @XmlAttribute(name = "id")
     private String id;
 
-    private Field[] field;
+    @XmlElement(name="field", type = Field.class)
+    private List<Field> field;
 
     public String getId ()
     {
@@ -18,12 +23,13 @@ public class Template
         this.id = id;
     }
 
-    public Field[] getField ()
+
+    public List<Field> getField ()
     {
         return field;
     }
 
-    public void setField (Field[] field)
+    public void setField ()
     {
         this.field = field;
     }
