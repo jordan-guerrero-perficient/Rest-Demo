@@ -1,0 +1,7 @@
+<templates>
+        <template id="demo">
+                <field id="first-name" dataType="String" dataSource="1"/>
+                <field id="last-name" dataType="String" dataSource="1"/>
+                <field id="ssn" dataType="String" dataSource="2"/>
+        </template>
+</templates>
