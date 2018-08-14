@@ -1,0 +1,3 @@
+<template id = "1">
+    <field type = "json" url="https://www.googleapis.com/customsearch/v1?key=AIzaSyCcDmi3nTLcfyAlOWIpVGNmEYGf22HGBo8&cx=018100688330092027261:ln0j8vimdvw&q=Chelsea">name</field>
+</template>
