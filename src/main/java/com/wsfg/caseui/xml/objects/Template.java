@@ -1,42 +1,36 @@
-package com.jordan.guerrero.restdemo.pojo;
+package com.wsfg.caseui.xml.objects;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "template")
-public class Template
-{
+public class Template {
     @XmlAttribute(name = "id")
     private String id;
 
-    @XmlElement(name="field", type = Field.class)
+    @XmlElement(name = "field", type = Field.class)
     private List<Field> field;
 
-    public String getId ()
-    {
+    public String getId() {
         return id;
     }
 
-    public void setId (String id)
-    {
+    public void setId(String id) {
         this.id = id;
     }
 
 
-    public List<Field> getField ()
-    {
+    public List<Field> getField() {
         return field;
     }
 
-    public void setField ()
-    {
+    public void setField() {
         this.field = field;
     }
 
     @Override
-    public String toString()
-    {
-        return "ClassPojo [id = "+id+", field = "+field+"]";
+    public String toString() {
+        return "Template [id = " + id + ", field = " + field + "]";
     }
 }

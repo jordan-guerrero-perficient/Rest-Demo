@@ -1,4 +1,4 @@
-package com.jordan.guerrero.restdemo.pojo;
+package com.wsfg.caseui.xml.objects;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,8 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "field")
-public class Field
-{
+public class Field {
     @XmlAttribute(name = "id")
     private String id;
 
@@ -19,7 +18,7 @@ public class Field
     private String dataSource;
 
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
@@ -28,13 +27,11 @@ public class Field
     }
 
 
-    public String getDataType ()
-    {
+    public String getDataType() {
         return dataType;
     }
 
-    public void setDataType (String dataType)
-    {
+    public void setDataType(String dataType) {
         this.dataType = dataType;
     }
 
@@ -48,16 +45,16 @@ public class Field
     }
 
 
-    public String getFieldData(String dataSource, String id){
+    public String getFieldData(String dataSource, String id) {
         String fieldValue = "";
 
-        if(id.equals("first-name"))
+        if (id.equals("first-name"))
             fieldValue = "John";
 
-        if(id.equals("last-name"))
+        if (id.equals("last-name"))
             fieldValue = "Smith";
 
-        else if(id.equals("ssn"))
+        else if (id.equals("ssn"))
             fieldValue = "111111111";
 
         return fieldValue;
@@ -65,9 +62,8 @@ public class Field
 
 
     @Override
-    public String toString()
-    {
-        return "ClassPojo [ type = "+dataType;
+    public String toString() {
+        return "Field [ type = " + id + ", " + dataType + ", " + dataSource;
     }
 
 }

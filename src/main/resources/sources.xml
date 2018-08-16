@@ -1,7 +1,28 @@
-<templates>
+<xmlConfig>
+    <templates>
         <template id="demo">
-                <field id="first-name" dataType="String" dataSource="1"/>
-                <field id="last-name" dataType="String" dataSource="1"/>
-                <field id="ssn" dataType="String" dataSource="2"/>
+            <field id="first-name" dataType="String" dataSource="1"/>
+            <field id="last-name" dataType="String" dataSource="1"/>
+            <field id="ssn" dataType="String" dataSource="2"/>
         </template>
-</templates>
+    </templates>
+    <dataSources>
+        <dataSource id="1" class="com.wsfg.restCall">
+            <RestDataSource>
+                <UserName>John</UserName>
+                <Password>Something</Password>
+                <Url>loadData</Url>
+                <Host>localhost</Host>
+                <Port>8080</Port>
+            </RestDataSource>
+        </dataSource>
+        <dataSource id="2" class="com.wsfg.databaseLookup">
+            <DBDataSource>
+                <UserName>John</UserName>
+                <Password>Something</Password>
+                <DbDetails>DatabaseConnectionString</DbDetails>
+                <SQL>Select * from someTable</SQL>
+            </DBDataSource>
+        </dataSource>
+    </dataSources>
+</xmlConfig>

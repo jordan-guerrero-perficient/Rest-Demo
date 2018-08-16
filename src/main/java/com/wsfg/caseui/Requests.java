@@ -1,8 +1,5 @@
-package com.jordan.guerrero.restdemo;
+package com.wsfg.caseui;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -21,7 +18,7 @@ public class Requests {
     private String searchKey;
 
 
-    public Requests(){
+    public Requests() {
     }
 
     @PostConstruct

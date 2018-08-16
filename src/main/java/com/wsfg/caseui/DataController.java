@@ -1,48 +1,40 @@
-package com.jordan.guerrero.restdemo;
+package com.wsfg.caseui;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jordan.guerrero.restdemo.pojo.*;
+import com.wsfg.caseui.xml.objects.Field;
+import com.wsfg.caseui.xml.objects.Template;
+import com.wsfg.caseui.xml.objects.Templates;
+import com.wsfg.caseui.xml.objects.XmlConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class DataController {
-
-//    private String searchUrl;
-//
-//    private String searchID;
-//
-//    private String searchKey;
+    @Value("${xmlPath}")
+    private String path;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public Templates createTemplateData(String path) throws JAXBException {
+    public XmlConfig createXmlConfig() throws JAXBException {
         try {
 
             File file = new File(path);
-            JAXBContext jaxbContext = JAXBContext.newInstance(Templates.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(XmlConfig.class);
 
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Templates templateList = (Templates) jaxbUnmarshaller.unmarshal(file);
-            return templateList;
+            XmlConfig xmlFile = (XmlConfig) jaxbUnmarshaller.unmarshal(file);
+            return xmlFile;
 
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -52,7 +44,7 @@ public class DataController {
 
     @CrossOrigin
     @RequestMapping("/loadData")
-    public Map<String, String> items(@RequestParam(value="id") String templateId, @Value("${xmlPath}") String path) throws Exception {
+    public Map<String, String> items(@RequestParam(value = "id") String templateId) throws Exception {
 //        this.searchID = searchID;
 //        this.searchKey = searchKey;
 //        this.searchUrl = searchUrl;
@@ -60,16 +52,16 @@ public class DataController {
 //        logger.info(searchUrl);
 //        logger.info(searchID);
 //        logger.info(searchKey);
-        Templates templateList = createTemplateData(path);
-
-        Template template = templateList.getTemplateById(templateId);
+        XmlConfig xmlConfig = createXmlConfig();
+        logger.info(xmlConfig.getDataSources().getDataSourceList().get(0).getRestDataSource().getHost());
+        Template template = xmlConfig.getTemplates().getTemplateById(templateId);
 
         Map<String, String> fieldData = new HashMap<String, String>();
-        for(Field field : template.getField()){
+        for (Field field : template.getField()) {
             fieldData.put(field.getId(), field.getFieldData(field.getDataSource(), field.getId()));
         }
 
-        return  fieldData;
+        return fieldData;
 //        RestTemplateBuilder builder = new RestTemplateBuilder();
 //        RestTemplate restTemplate = builder.build();
 //

@@ -1,4 +1,4 @@
-package com.jordan.guerrero.restdemo;
+package com.wsfg.caseui;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -8,14 +8,14 @@ import java.util.List;
 public class Wrapper {
     public List<Items> items;
 
-    public Wrapper(){
+    public Wrapper() {
     }
 
-    public List<Items> getItems(){
+    public List<Items> getItems() {
         return this.items;
     }
 
-    public void setList(){
+    public void setList() {
         this.items = items;
     }
 

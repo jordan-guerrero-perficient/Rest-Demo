@@ -1,4 +1,4 @@
-package com.jordan.guerrero.restdemo;
+package com.wsfg.caseui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RestDemoApplication {
 
-	public static void main(String args[]){
+    public static void main(String args[]) {
 
-		SpringApplication.run(RestDemoApplication.class, args);
-	}
+        SpringApplication.run(RestDemoApplication.class, args);
+    }
 
 }
